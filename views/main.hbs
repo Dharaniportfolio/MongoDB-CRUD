@@ -8,18 +8,31 @@
 <body>
     <h1>MongoDB connection</h1>
     {{message}}
-
-    <form method="post" action="/details">
+    <br>
+    {{#if edit_id}}
+    <h3>Update data</h3>
+    <form method="post" action="/update/{{edit_id}}">
+    <lable for="">name</lable>
+    <input type="text" name="name" value="{{edit_detail.name}}">
+    <label for="">pos</label>
+    <input type="text" name="pos" value="{{edit_detail.pos}}">
+    <input type="submit">
+    </form>
+    <br>
+    {{else}}
+    <h3>Create data</h3>
+    <form method="post" action="/store">
     <lable for="">name</lable>
     <input type="text" name="name">
     <label for="">pos</label>
     <input type="text" name="pos">
     <input type="submit">
     </form>
+    {{/if}}
     <ul>
     {{#each employee}}
     <li>
-        {{this.name}} - {{this.pos}}
+        {{this.name}} - {{this.pos}} <a href="/?edit_id={{this._id}}">Edit</a>
     </li>
     {{/each}}
     </ul>   
