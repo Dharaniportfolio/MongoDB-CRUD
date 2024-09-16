@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo</title>
+</head>
+<body>
+    <h1>MongoDB connection</h1>
+    {{message}}
+
+    <form method="post" action="/details">
+    <lable for="">name</lable>
+    <input type="text" name="name">
+    <label for="">pos</label>
+    <input type="text" name="pos">
+    <input type="submit">
+    </form>
+    <ul>
+    {{#each employee}}
+    <li>
+        {{this.name}} - {{this.pos}}
+    </li>
+    {{/each}}
+    </ul>   
+</body>
+</html>
