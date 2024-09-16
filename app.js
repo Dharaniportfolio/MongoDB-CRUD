@@ -22,10 +22,15 @@ app.get('/',async(req,res)=>{
     let employee = await cursor.toArray();
 
     let edit_id, edit_detail;
-
+    //If get edit request. fetch the data process...
     if(req.query.edit_id){
         edit_id = req.query.edit_id;
         edit_detail = await collection.findOne({_id:new ObjectId(edit_id)})
+    }
+    // deletion
+    if(req.query.delete_id){
+        await collection.deleteOne({_id: new ObjectId(req.query.delete_id)})
+        return res.redirect('/?status = 3')
     }
 
     let message = '';
@@ -35,6 +40,9 @@ app.get('/',async(req,res)=>{
             break;
         case '2':
             message = "update Success";
+            break;
+        case '3':
+            message = "deletion Success";
             break;
         default:
             break;

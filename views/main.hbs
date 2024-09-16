@@ -32,7 +32,7 @@
     <ul>
     {{#each employee}}
     <li>
-        {{this.name}} - {{this.pos}} <a href="/?edit_id={{this._id}}">Edit</a>
+        {{this.name}} - {{this.pos}} <a href="/?edit_id={{this._id}}"> Edit</a> <a href="/?delete_id={{this._id}}" onclick="return confirm('are u sure to delete')"> Delete</a>
     </li>
     {{/each}}
     </ul>   
