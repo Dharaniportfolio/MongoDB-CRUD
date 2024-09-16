@@ -31,6 +31,7 @@ app.get('/',async(req,res)=>{
     res.render('main',{message,employee});
 })
 
+// Add data to DB (Read operation)
 app.post('/details',async(req,res)=>{
     let database = await dbo.getDatabase();
     const collection = database.collection('workers');
